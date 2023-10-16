@@ -4,6 +4,9 @@ source "https://rubygems.org"
 
 gem "jekyll-theme-chirpy", "~> 6.2", ">= 6.2.2"
 
+# 快速创建插件 https://github.com/jekyll/jekyll-compose
+gem 'jekyll-compose', group: [:jekyll_plugins]
+
 group :test do
   gem "html-proofer", "~> 4.4"
 end
