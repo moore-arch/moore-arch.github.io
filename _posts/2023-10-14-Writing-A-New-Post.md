@@ -1,7 +1,7 @@
 ---
 author: moore
 layout: post
-title: post demo
+title: Writing a New Post
 date: 2023-10-14 20:16 +0800
 categories: [Blogging, Demo]
 tags: github-pages
