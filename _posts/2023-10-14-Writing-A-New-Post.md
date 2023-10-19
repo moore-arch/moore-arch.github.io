@@ -29,12 +29,12 @@ mermaid: true
 直接添加一个新的`markdown`文档，然后添加`title`, `date`, `categories`, `tags`等必要信息即可。
 
 ### 快速创建
-使用[Jekyll-Compose](https://github.com/jekyll/jekyll-compose)插件可以快速创建一个文档，但是其中缺少`tags`等信息。
-使用方式也很简单
+使用[Jekyll-Compose](https://github.com/jekyll/jekyll-compose)插件可以快速创建一个文档，但创建好的模板中缺少`tags`等信息，需要手动添加（可选）。
+`Jekyll-Compose`的使用方式也很简单：
 - 在`Genfile`内添加插件：`gem 'jekyll-compose', group: [:jekyll_plugins]`
 - `shell`内根据`Gemfile`配置环境，直接执行：`$ bundle`
 - 使用插件创建文档：`$ bundle exec jekyll post "My New Post"`
-除了创建文档之外，Jekyll-Compose还可以生成`draft`, `pages`等，详细功能可以自行探索，一般用不到。
+除了创建文档之外，`Jekyll-Compose`还可以生成`draft`, `pages`等，详细功能可以自行探索，一般用不到。
 
 
 ## 作者信息
@@ -74,28 +74,28 @@ C -->|Two| E[Result 2]
 插入图片完全遵循`markdown`语法，图片链接下方的斜体字将作为图片名称显示。
 
 ```markdown
-![img-description](`/path/to/image`)
+![img-description](/path/to/image)
 _Image Caption_
 ```
 
 
 ### 图片尺寸
 ```markdown
-![Desktop View](`/assets/img/sample/mockup.png`){: width="700" height="400" }
+![Desktop View](/assets/img/sample/mockup.png){: width="700" height="400" }
 需要注意的是，***对于`svg`矢量图必须指定宽度，否则将不会渲染***。 
 ```
 
 ### 位置
 位置默认居中，可以指定左右
 ```markdown
-![Desktop View]`(/assets/img/sample/mockup.png)`{: .normal }
+![Desktop View](/assets/img/sample/mockup.png){: .normal }
 ```
 
 ### 其他属性
 - 图像可以适应暗/亮不同主题，但是必须指定2张图片。
 ```markdown
-![Light mode only](`/path/to/light-mode.png`){: .light }
-![Dark mode only](`/path/to/dark-mode.png`){: .dark }
+![Light mode only](/path/to/light-mode.png){: .light }
+![Dark mode only](/path/to/dark-mode.png){: .dark }
 ```
 
 ### cdn图片
