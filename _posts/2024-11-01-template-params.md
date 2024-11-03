@@ -49,6 +49,22 @@ class {
 
 ```
 
+## 默认模版自变量
+
+类模板和函数模板的参数都可以指定默认自变量，类似于函数的默认参数，对于默认自变量使用时如果不指定值则使用默认值。多个模板参数，第一个默认参数后的所有参数必须具有默认参数。参数均为默认值的模板时，请使用空尖括号。
+```cpp
+template<typename A = int, typename B = double>
+class Bar
+{
+    //...
+};
+
+int main()
+{
+    Bar<> bar; // use all default type arguments
+}
+```
+
 # 参考内容
 - https://wy-ei.gitee.io/notebook/posts/2020/chrono/#%E6%97%B6%E9%97%B4%E6%AE%B5
 - https://subingwen.cn/cpp/chrono/index.html
