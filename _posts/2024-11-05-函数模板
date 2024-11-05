@@ -1,0 +1,40 @@
+---
+author: moore
+layout: post
+title: 类模板
+date: 2024-11-05 22:00 +0800
+categories: [cpp, template]
+tags: cpp
+mermaid: true
+---
+
+# 函数模板
+与类模板相似，函数模板可以根据类型T的不同生成代码相同但类型不同的函数（函数签名不相同）。函数模板的类型T既可以自动推导，也可以显式指定。函数模板的一般形式为：
+
+```cpp
+// function_templates1.cpp
+template< class T > void SelfDefineSwap( T& a, T& b ) {
+   T c(a);
+   a = b;
+   b = c;
+}
+
+int a, b;
+SelfDefineSwap(a, b); // 可以，此时类型自动推导为int，函数签名是SelfDefineSwap(int&, int&)
+T template< typename T> Foo(T val) { return val; }
+Foo<double>(4);  // 可以，T为double
+```
+
+## 函数模板实例化
+函数模板会根据不同的类型组合生成不同的函数，每种类型组合最终都会调用对应的实例化函数，互不干扰。除了调用之外，也可以**通过将特定类型作为自变量来声明模板，可以将函数模板显示实例化**。
+```cpp
+template<class T> void f(T) { }
+
+// 实例化函数，显式声明T为int
+template void f<int> (int);
+
+// 实例化函数，自动推导，T为char
+template void f(char);
+```
+
+
