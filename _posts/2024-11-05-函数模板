@@ -37,4 +37,35 @@ template void f<int> (int);
 template void f(char);
 ```
 
+## 成员函数模板
+成员函数模板指拥有属于自己的模板自变量的成员函数，而类模板的所有函数都拥有相同的类型参数。需要注意的是：***成员函数模板不能是虚函数。 当使用与基类虚函数相同的名称进行声明时，成员模板函数不能从基类重写虚函数。***
+```cpp
+// mf是一个普通类中的成员函数模板，拥有自身的变量参数T
+struct X {
+   template <class T> void mf(T* t) {}
+};
 
+// mf是类模板中的函数模板，类X拥有的类型是T，所有成员函数、成员变量共享
+// mf方法拥有属于自身的类型参数U
+template<typename T>
+class X {
+public:
+   template<typename U>
+   void mf(const U &u) {
+   }
+};
+```
+
+成员函数模板同样可以定义在函数外部，但是会显得很复杂。
+```cpp
+template<typename T>
+class X {
+public:
+   template<typename U>
+   void mf(const U &u);
+};
+
+template<typename T> template <typename U>
+void X<T>::mf(const U &u)
+{}
+```
